@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -64,8 +65,8 @@ public class JobData {
      * For example, searching for employer "Enterprise" will include results
      * with "Enterprise Holdings, Inc".
      *
-     * @param column   Column that should be searched.
-     * @param value Value of teh field to search for
+     * @param column Column that should be searched.
+     * @param value  Value of teh field to search for
      * @return List of all jobs matching the criteria
      */
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
@@ -91,15 +92,22 @@ public class JobData {
      * Search all columns for the given term
      *
      * @param value The search term to look for
-     * @return      List of all jobs with at least one field containing the value
+     * @return List of all jobs with at least one field containing the value
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
-
+        System.out.println(value);
         // load data, if not already loaded
         loadData();
-
-        // TODO - implement this method
-        return null;
+        ArrayList<HashMap<String, String>> jobsByValue = new ArrayList<>();
+        for (HashMap<String, String> aJob : allJobs) {
+            for (String jobValue : aJob.values()) {
+                if (jobValue.toLowerCase().contains(value.toLowerCase())) {
+                    jobsByValue.add(aJob);
+                    break;
+                }
+            }
+        }
+        return jobsByValue;
     }
 
     /**
