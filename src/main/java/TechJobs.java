@@ -125,11 +125,11 @@ public class TechJobs {
             return;
         }
         for (HashMap<String, String> aJob : someJobs) {
-            System.out.println(decoration);
+            System.out.println("\n" + decoration);
             for (Map.Entry<String, String> jobDetail : aJob.entrySet()) {
                 System.out.println(jobDetail.getKey() + ": " + jobDetail.getValue());
             }
-            System.out.println(decoration + "\n");
+            System.out.println(decoration);
         }
         // System.out.println("printJobs is not implemented yet");
     }
