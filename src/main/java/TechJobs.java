@@ -121,7 +121,7 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         String decoration = "*****";
         if (someJobs.size() < 1) {
-            System.out.println("No Results");
+            System.out.print("No Results");
             return;
         }
         for (HashMap<String, String> aJob : someJobs) {
